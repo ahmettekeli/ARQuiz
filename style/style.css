@@ -1,0 +1,337 @@
+body {
+  margin: 0;
+}
+body,
+html {
+  height: 100%;
+}
+
+#container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+}
+
+video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+@media screen and (orientation: portrait) {
+  #sprite {
+    height: calc(70%);
+  }
+}
+
+@media all and (orientation: landscape) {
+  #sprite {
+    height: calc(80%);
+  }
+}
+
+.active {
+  display: block !important;
+}
+
+canvas {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.spinnerContainer {
+  position: absolute;
+  left: 48%;
+  top: 48%;
+}
+
+#footerContainer {
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  visibility: hidden;
+}
+
+.modal {
+  padding: 0 !important;
+}
+.modal .modal-dialog {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+}
+.modal .modal-content {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  background-color: #e8ded2;
+}
+.modal .modal-body {
+  overflow-y: auto;
+}
+
+#tutorialImg {
+  width: 200px;
+  height: auto;
+}
+
+.fadeIn {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+
+.fadeOut {
+  animation: fadeOut ease 1s;
+  -webkit-animation: fadeOut ease 1s;
+  -moz-animation: fadeOut ease 1s;
+  -o-animation: fadeOut ease 1s;
+  -ms-animation: fadeOut ease 1s;
+}
+
+.answer {
+  background-color: skyblue;
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+  margin: 10px;
+  padding: 7px;
+}
+
+.question {
+  background-color: skyblue;
+  border-radius: 30px;
+  width: 320px;
+  height: 200px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.no-highlighting {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#buttonContainer {
+  z-index: 11;
+  position: relative;
+}
+
+#answers {
+  padding: 10px;
+  visibility: hidden;
+}
+
+#questionHolder {
+  position: absolute;
+  visibility: hidden;
+  z-index: 101;
+  padding: 10px;
+}
+
+#progressContainer {
+  height: 3px;
+  /* z-index: 101; */
+  transform: scaleX(-1);
+}
+
+#timerBar {
+  width: 0%;
+}
+
+#questionContainer {
+  position: absolute;
+}
+
+#progressContainer {
+  visibility: hidden;
+}
+
+#scoreContainer {
+  visibility: hidden;
+  position: relative;
+}
+
+.selectedAnswer {
+  animation: selectedAnswer 0.5s;
+  background-color: sandybrown;
+}
+
+.correctAnswer {
+  animation: correctAnswer 0.5s;
+  background-color: springgreen;
+}
+
+.wrongAnswer {
+  animation: wrongAnswer 0.5s;
+  background-color: tomato;
+}
+
+@keyframes selectedAnswer {
+  from {
+  }
+  to {
+    background-color: sandybrown;
+  }
+}
+
+@keyframes correctAnswer {
+  from {
+    transform: scale(1);
+  }
+  to {
+    background-color: springgreen;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes wrongAnswer {
+  from {
+  }
+  to {
+    background-color: tomato;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

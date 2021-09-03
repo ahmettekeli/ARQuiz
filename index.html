@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./style/style.css" />
+    <!-- <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>Augmented Relity Quiz</title>
+  </head>
+
+  <body style="background-color: gray">
+    <div id="container">
+      <video id="video" playsinline autoplay muted></video>
+      <canvas id="canvas"></canvas>
+      <div class="spinnerContainer">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div id="questionHolder">
+        <div id="questionContainer">
+          <div id="progressContainer" class="progress">
+            <div
+              id="timerBar"
+              class="progress-bar bg-warning"
+              role="progressbar"
+              aria-valuenow="0"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <!-- <div id="question" class="question"  style="background-image: url(https://media.gettyimages.com/photos/white-gray-geometric-wallpaper-background-picture-id1018450682?b=1&k=6&m=1018450682&s=612x612&w=0&h=BIYg0tIfhhdYJ6R7WePQOp4LHbNMjXt8Mv7Rhjhzpik=);"> -->
+          <div id="question" class="question">
+          <div class="row h-100">
+            <div class="col-sm-12 my-auto">
+              <div class="mx-auto">
+                <p class="text-justify text-center no-highlighting">Click anywhere to start</p>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div id="answers" class="row">
+            <!-- <div id="answer1" class="answer col-xs-6"  style="background-image: url(https://media.gettyimages.com/photos/white-gray-geometric-wallpaper-background-picture-id1018450682?b=1&k=6&m=1018450682&s=612x612&w=0&h=BIYg0tIfhhdYJ6R7WePQOp4LHbNMjXt8Mv7Rhjhzpik=);"> -->
+            <div id="answer1" class="answer col-xs-6">
+              <p class="text-justify text-center no-highlighting">Answer 1</p>
+            </div>
+            <!-- <div id="answer2" class="answer col-xs-6"  style="background-image: url(https://media.gettyimages.com/photos/white-gray-geometric-wallpaper-background-picture-id1018450682?b=1&k=6&m=1018450682&s=612x612&w=0&h=BIYg0tIfhhdYJ6R7WePQOp4LHbNMjXt8Mv7Rhjhzpik=);"> -->
+            <div id="answer2" class="answer col-xs-6">
+              <p class="text-justify text-center no-highlighting">Answer 2</p>
+            </div>
+          </div>
+        </div>
+        <div id="scoreContainer"  >
+          <!-- <div class="question" style="background-image: url(https://media.gettyimages.com/photos/white-gray-geometric-wallpaper-background-picture-id1018450682?b=1&k=6&m=1018450682&s=612x612&w=0&h=BIYg0tIfhhdYJ6R7WePQOp4LHbNMjXt8Mv7Rhjhzpik=);"> -->
+          <div class="question">
+            <div class="row h-100">
+          <div class="col-sm-12 my-auto">
+            <div class="mx-auto">
+              <p id="scoreText" class="text-justify text-center no-highlighting">Your Score:</p>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footerContainer" class="container-fluid">
+      <div id="buttonContainer">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6 text-center">
+              <button id="playAgainBtn" class="btn btn-primary btn-lg">Play Again</button>
+              <button id="moreInfoBtn" class="btn btn-info btn-lg">More Info</button>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="startModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+          </div> -->
+          <div class="modal-body">
+            <div class="container-fluid text-center">
+              <div class="row">
+                <div class="col-12 align-items-center">
+                  <p class="text-center no-highlighting">Campaign name goes here</p>
+                </div>
+                <div class="col-12 align-items-center">
+                  <p class="text-center no-highlighting">Campaign logo goes here</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <img id="tutorialImg" src="./images/headTilt.gif" alt="" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="text-center no-highlighting">How to play</p>
+                </div>
+                <!-- <div class="col-12">
+                  <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div> -->
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-3"></div>
+                  <div class="col-6 text-center">
+                    <div class="row">
+                      <div class="col-6">
+                        <button
+                          type="button"
+                          id="playBtn"
+                          class="btn btn-primary btn-lg"
+                        >
+                          Play
+                        </button>
+                      </div>
+                      <div class="col-6">
+                        <button
+                          type="button"
+                          id="ctaBtn"
+                          class="btn btn-info btn-lg"
+                        >
+                          CTA
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-3"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="modal-footer">
+            <h5>Footer goes here</h5>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="https://unpkg.com/regenerator-runtime@0.13.1/runtime.js"></script> -->
+    <script defer src="./lib/face-api.js"></script>
+    <!-- <script defer src="./js/bundle_backup.js"></script> -->
+    <script defer src="./dist/app.bundle.js"></script>
+    <!-- <script defer src="./js/index.js"></script> -->
+  </body>
+</html>
